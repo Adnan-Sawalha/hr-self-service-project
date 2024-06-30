@@ -5,6 +5,7 @@
 }
 
 .nav {
+    position: fixed;
     display: flex;
     color: white;
     background: linear-gradient(to left, #96C9F4, #6F66FF);
@@ -33,6 +34,7 @@
     justify-content: space-evenly;
     height: 630px;
     margin-right: 50px;
+    margin-top:90px;
 }
 
 .welcome {
@@ -56,6 +58,7 @@
     height: 600px;
     width: 550px;
     margin: 30px;
+    margin-top:90px;
 }
 
 .container {
