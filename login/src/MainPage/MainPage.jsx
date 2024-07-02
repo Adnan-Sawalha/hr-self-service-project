@@ -1,79 +1,17 @@
 import Nav from '../Components/Nav'
 import styles from './MainPage.module.css'
-import ProfilePic from '../assets/profile_picture.jpg'
 import Container from '../Components/Container'
-import PhoneIcon from '../assets/phoneIcon.png'
-import EmailIcon from '../assets/emailIcon.png'
-import LinkIcon from '../assets/linkIcon.png'
-import LinkedInIcon from '../assets/linkedIn.png'
+import Left from '../Components/Left'
+import Tr from '../Components/tr.jsx'
+import Tr2 from '../Components/tr2.jsx'
 
 
 function MainPage() {
 
     return(
         <div className = {styles.bodyWrapper}>
-            
             <Nav/> 
-            <div className={styles.left}>
-                <div className={styles.welcome}>Welcome, Admin</div>
-
-                <div className={styles.info}>
-                    <div className={styles.infoLeft}>
-                        <img src={ProfilePic} className={styles.propic}></img>
-                        <div className={styles.proinfo}>
-                            <div className={styles.name}>Adnan Sawalha </div>
-                            <div className={styles.pos}>AI Student </div>
-                            <div className={styles.live}>Amman, Jordan <br/> 01.05.2004 (20 y.o.)</div>
-                        </div>
-                    </div>
-                    <div className={styles.vl}></div>
-                    <div className={styles.infoRight}>
-                        <div className={styles.emp1}>
-                            <div className={styles.type}>
-                                <div className={styles.role}>Role</div>
-                                <div className={styles.user}>User</div>
-                            </div>
-                            <div className={styles.type}>
-                                <div className={styles.employeeId}>Employee ID</div>
-                                <div className={styles.user}>12345</div>
-                            </div>
-                            <div className={styles.type}>
-                                <div className={styles.role}>Hired Date</div>
-                                <div className={styles.hiredDate}>May 15, 2018</div>
-                            </div>
-                            <div className={styles.type}>
-                                <div className={styles.role}>Worked For</div>
-                                <div className={styles.workedFor}>4 Years, 3 Months</div>
-                            </div>
-                        </div>
-                        <hr className={styles.hr}></hr>
-                        <div className={styles.emp2}>
-
-                            <div className={styles.socio}>
-                                <img src={PhoneIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>+962 7 8793 0432</span>
-                            </div>
-
-                            <div className={styles.socio}>
-                                <img src={EmailIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>admin.admin@gmail.com</span>
-                            </div>
-
-                            <div className={styles.socio}>
-                                <img src={LinkIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>www.adminadmin.com</span>
-                            </div>
-
-                            <div className={styles.socio}>
-                                <img src={LinkedInIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>www.linkedin.com/admin</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+            <Left/>
             <div className={styles.containers}>
                 <Container />
                 <Container />
@@ -82,8 +20,27 @@ function MainPage() {
                 <Container />
                 <Container />
             </div>
-
-            
+            <div className={styles.tableContainer}>
+                <table className={styles.table} >
+                    <tr>
+                        <th className={styles.tableCont1}>ID</th>
+                        <th className={styles.tableCont1}>Type</th>
+                        <th className={styles.tableCont1}>Start Date</th>
+                        <th className={styles.tableCont1}>End Date</th>
+                        <th className={styles.tableCont1}>Status</th>
+                        <th className={styles.tableCont1}>Delete</th>
+                    </tr>
+                    <Tr2/>
+                    <Tr/>
+                    <Tr2/>
+                    <Tr/>
+                    <Tr2/>
+                    <Tr/>
+                    <Tr2/>
+                    <Tr/>
+                    
+                </table>
+            </div>
         </div>
     );
 }
