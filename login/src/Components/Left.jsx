@@ -5,6 +5,7 @@ import LinkIcon from '../assets/linkIcon.png'
 import LinkedInIcon from '../assets/linkedIn.png'
 import ProfilePic from '../assets/profile_picture.jpg'
 
+
 function Left() {
     return(
         <div className={styles.left}>

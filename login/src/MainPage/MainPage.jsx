@@ -4,6 +4,7 @@ import Container from '../Components/Container'
 import Left from '../Components/Left'
 import Tr from '../Components/tr.jsx'
 import Tr2 from '../Components/tr2.jsx'
+import LastTR from '../Components/lastTR.jsx'
 
 
 function MainPage() {
@@ -28,7 +29,7 @@ function MainPage() {
                         <th className={styles.tableCont1}>Start Date</th>
                         <th className={styles.tableCont1}>End Date</th>
                         <th className={styles.tableCont1}>Status</th>
-                        <th className={styles.tableCont1}>Delete</th>
+                        <th className={styles.tableCont1}>withdraw</th>
                     </tr>
                     <Tr2/>
                     <Tr/>
@@ -37,7 +38,7 @@ function MainPage() {
                     <Tr2/>
                     <Tr/>
                     <Tr2/>
-                    <Tr/>
+                    <LastTR/>
                     
                 </table>
             </div>

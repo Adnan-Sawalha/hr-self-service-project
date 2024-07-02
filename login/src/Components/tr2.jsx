@@ -1,4 +1,6 @@
 import styles from '../MainPage/MainPage.module.css'
+import withdrawlButton from '../assets/tableQuit.png'
+
 
 function tr() {
     return(
@@ -8,7 +10,7 @@ function tr() {
             <td className={styles.tableCont2}>Lorem, ipsum.</td>
             <td className={styles.tableCont2}>Lorem, ipsum.</td>
             <td className={styles.tableCont2}>Lorem, ipsum.</td>
-            <td className={styles.tableCont2}>Lorem, ipsum.</td>
+            <td className={styles.tableCont2}><button><img src={withdrawlButton} alt="withdraw" /></button></td>
         </tr>
     );
 }

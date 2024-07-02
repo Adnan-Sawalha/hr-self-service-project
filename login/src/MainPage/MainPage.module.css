@@ -255,13 +255,31 @@
     height: 500px;
 }
 
-.tableCont1, .tableCont2 {
+.tableCont1, .tableCont2 ,.tableCont{
     width: 188.13px;
     height: 50px;
     padding-left: 10px;
     background-color: #E9ECEF;
 }
+.tableCont1 Button , .tableCont2 button{
+    position: relative;
+    left: 84.5px;
+    height: 40px;
+    width: 50px;
+}
+.tableCont{
+    text-align: center;
+    color: #6c6d70;
+    font-size: 30px;
+    
+}
+
+.tableCont1 img, .tableCont2 img{
+    width: 100%;
+    height: 100%;
+}
 
 .tableCont2 {
     background-color: white;
+    
 }
