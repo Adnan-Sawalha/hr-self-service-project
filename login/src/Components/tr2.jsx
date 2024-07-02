@@ -10,7 +10,7 @@ function tr() {
             <td className={styles.tableCont2}>Lorem, ipsum.</td>
             <td className={styles.tableCont2}>Lorem, ipsum.</td>
             <td className={styles.tableCont2}>Lorem, ipsum.</td>
-            <td className={styles.tableCont2}><button><img src={withdrawlButton} alt="withdraw" /></button></td>
+            <td className={styles.tableCont2}><button>-</button></td>
         </tr>
     );
 }

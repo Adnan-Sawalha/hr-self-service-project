@@ -261,18 +261,27 @@
     padding-left: 10px;
     background-color: #E9ECEF;
 }
-.tableCont1 Button , .tableCont2 button{
+.tableCont1 Button ,.tableCont Button, .tableCont2 button{
     position: relative;
     left: 84.5px;
     height: 40px;
     width: 50px;
 }
 .tableCont{
+    
     text-align: center;
     color: #6c6d70;
     font-size: 30px;
     
 }
+.tableCont div{
+    position: relative;
+    right: 38.5%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
 
 .tableCont1 img, .tableCont2 img{
     width: 100%;
@@ -282,4 +291,40 @@
 .tableCont2 {
     background-color: white;
     
+}.footer {
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: linear-gradient(to right, hsl(207, 81%, 80%), hsl(244, 100%, 77%));
+    padding: 20px 0; 
+    height: 80px; 
+    width: 100%;
+    z-index: 1;
+}
+
+.footer a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin-top: 10px;
+    position: relative;
+    left: 10%;
+    top: 25%;
+}
+.footer a :hover{
+
+    cursor: pointer;
+    color: #c9cbd1;}
+
+.footer h4 {
+    margin-top: 10px; /* Adjust margin for spacing above the text */
+    text-align: center; /* Center the text */
+}
+
+.footer img {
+    margin-right: 5px;
+    height: 12px;
+    width: 12px;
 }

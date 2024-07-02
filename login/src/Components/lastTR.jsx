@@ -4,7 +4,7 @@ function lastTR() {
     return(
         <tr>
             <td className={styles.tableCont} colSpan={5}> </td>
-            <td className={styles.tableCont} ><button type='button'>+</button></td>
+            <td className={styles.tableCont} ><div><button type='button'>+</button></div></td>
         </tr>
     );
 }

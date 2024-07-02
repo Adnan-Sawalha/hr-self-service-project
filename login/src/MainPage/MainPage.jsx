@@ -5,7 +5,7 @@ import Left from '../Components/Left'
 import Tr from '../Components/tr.jsx'
 import Tr2 from '../Components/tr2.jsx'
 import LastTR from '../Components/lastTR.jsx'
-
+import LinkedInIcon from '../assets/linkedIn.png'
 
 function MainPage() {
 
@@ -41,6 +41,15 @@ function MainPage() {
                     <LastTR/>
                     
                 </table>
+            </div>
+            <div className={styles.footer}>
+                <a href="https://www.linkedin.com/in/adnan-sawalha-1075bb2b1/">
+                <img src={LinkedInIcon} alt="linkeIn"/>Adnan-swalha
+                </a>
+                <a href="https://www.linkedin.com/in/ahmad-almanasrah-356475279/">
+                    <img src={LinkedInIcon} alt="linkeIn"/>Ahmad-Almanasrah
+                </a>
+                <h4>&copy; all rights reserved </h4>
             </div>
         </div>
     );
