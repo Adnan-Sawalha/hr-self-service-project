@@ -1,15 +1,27 @@
+import React, {useEffect, useState} from 'react'
 import styles from '../MainPage/MainPage.module.css'
 import PhoneIcon from '../assets/phoneIcon.png'
 import EmailIcon from '../assets/emailIcon.png'
 import LinkIcon from '../assets/linkIcon.png'
 import LinkedInIcon from '../assets/linkedIn.png'
 import ProfilePic from '../assets/profile_picture.jpg'
+import axios from 'axios'
 
 
 function Left() {
+    const[names, setName] = useState('');
+
+    useEffect(() => {
+        axios.get('http://127.0.0.1:5000/')
+        .then(
+            response => { setName(response.data)}
+        )
+    }, [])
+
+
     return(
         <div className={styles.left}>
-                <div className={styles.welcome}>Welcome, Admin</div>
+                <div className={styles.welcome}>Welcome, {names}</div>
 
                 <div className={styles.info}>
                     <div className={styles.infoLeft}>
