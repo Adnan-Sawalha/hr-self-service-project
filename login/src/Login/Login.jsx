@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styles from './Login.module.css'
+import axios from 'axios'
 
 function Login(props) {
     const [email, setEmail] = useState("");
@@ -14,6 +15,20 @@ function Login(props) {
     }
 
     function handleSubmit() {
+        
+        axios.post('http://127.0.0.1:5000/login', {
+            email: email,
+            password: password
+          }, {headers: {
+            'Content-Type': 'application/json'
+          }})
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
         props.onLogin();
     }
 
