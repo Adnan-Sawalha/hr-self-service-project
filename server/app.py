@@ -8,7 +8,7 @@ CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '0000'
+app.config['MYSQL_PASSWORD'] = 'ucv&73'
 app.config['MYSQL_DB'] = 'hr'
 app.config['SECRET_KEY'] = '12345'
 
@@ -21,12 +21,35 @@ id =''
 def name():
 
     cur = mysql.connection.cursor()
-    print("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", id)
-    cur.execute('SELECT name FROM users where idUsers = %s', (str( id),))
-    users = cur.fetchone()
+    cur.execute('''
+        SELECT email, name, password, position, city, country, day, month, year,
+               hDay, hMonth, hYear, web, linkedIn, mobile, role, idUsers
+        FROM users 
+        WHERE idUsers = %s
+    ''', (id,))
+    user = cur.fetchone()
     cur.close()
-    if users:
-        return jsonify(users)
+    if user: 
+        user_details = {
+            'email': user[0],
+            'name': user[1],
+            'password': user[2],
+            'position': user[3],
+            'city': user[4],
+            'country': user[5],
+            'day': user[6],
+            'month': user[7],
+            'year': user[8],
+            'hDay': user[9],
+            'hMonth': user[10],
+            'hYear': user[11],
+            'web': user[12],
+            'linkedIn': user[13],
+            'mobile': user[14],
+            'role': user[15],
+            'userId': user[16]
+        }
+        return jsonify(user_details)
 
 @app.route('/login', methods=['POST'])
 def login():

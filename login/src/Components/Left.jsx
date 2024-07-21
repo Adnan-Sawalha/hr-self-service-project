@@ -9,27 +9,60 @@ import axios from 'axios'
 
 
 function Left() {
-    const[names, setName] = useState('');
+    const[userId, setUserId] = useState('');
+    const[email, setEmail] = useState('');
+    const[name, setName] = useState('');
+    const[position, setPosition] = useState('');
+    const[city, setCity] = useState('');
+    const[country, setCountry] = useState('');
+    const[day, setDay] = useState('');
+    const[month, setMonth] = useState('');
+    const[year, setYear] = useState('');
+    const[hday, setHday] = useState('');
+    const[hmonth, setHmonth] = useState('');
+    const[hyear, setHyear] = useState('');
+    const[web, setWeb] = useState('');
+    const[linkedin, setLinkedin] = useState('');
+    const[mobile, setMobile] = useState('');
+    const[role, setRole] = useState('');
+    
+    
 
     useEffect(() => {
         axios.get('http://127.0.0.1:5000/')
         .then(
-            response => { setName(response.data)}
+            response => { setUserId(response.data['userId'])
+                          setName(response.data['name'])
+                          setEmail(response.data['email'])
+                          setPosition(response.data['position'])
+                          setCity(response.data['city'])
+                          setCountry(response.data['country'])
+                          setDay(response.data['day'])
+                          setMonth(response.data['month'])
+                          setYear(response.data['year'])
+                          setHday(response.data['hDay'])
+                          setHmonth(response.data['hMonth'])
+                          setHyear(response.data['hYear'])
+                          setWeb(response.data['web'])
+                          setLinkedin(response.data['linkedIn'])
+                          setMobile(response.data['mobile'])
+                          setRole(response.data['role'])
+             }
         )
     }, [])
 
 
     return(
         <div className={styles.left}>
-                <div className={styles.welcome}>Welcome, {names}</div>
+                <div className={styles.welcome}>Welcome, {String(name).split(' ')[0]}</div>
 
                 <div className={styles.info}>
                     <div className={styles.infoLeft}>
                         <img src={ProfilePic} className={styles.propic}></img>
                         <div className={styles.proinfo}>
-                            <div className={styles.name}>Adnan Sawalha </div>
-                            <div className={styles.pos}>AI Student </div>
-                            <div className={styles.live}>Amman, Jordan <br/> 01.05.2004 (20 y.o.)</div>
+                            <div className={styles.name}>{name} </div>
+                            <div className={styles.pos}>{position} </div>
+                            <div className={styles.live}>{city}, {country} <br/> {day}.{month}.{year} (20 y.o.)</div>
                         </div>
                     </div>
                     <div className={styles.vl}></div>
@@ -37,15 +70,15 @@ function Left() {
                         <div className={styles.emp1}>
                             <div className={styles.type}>
                                 <div className={styles.role}>Role</div>
-                                <div className={styles.user}>User</div>
+                                <div className={styles.user}>{role == "A" ? "Admin" : "User"}</div>
                             </div>
                             <div className={styles.type}>
                                 <div className={styles.employeeId}>Employee ID</div>
-                                <div className={styles.user}>12345</div>
+                                <div className={styles.user}>{userId}</div>
                             </div>
                             <div className={styles.type}>
                                 <div className={styles.role}>Hired Date</div>
-                                <div className={styles.hiredDate}>May 15, 2018</div>
+                                <div className={styles.hiredDate}>{hmonth} {hday}, {hyear}</div>
                             </div>
                             <div className={styles.type}>
                                 <div className={styles.role}>Worked For</div>
@@ -57,22 +90,22 @@ function Left() {
 
                             <div className={styles.socio}>
                                 <img src={PhoneIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>+962 7 8793 0432</span>
+                                <span className={styles.phone}>{mobile}</span>
                             </div>
 
                             <div className={styles.socio}>
                                 <img src={EmailIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>admin.admin@gmail.com</span>
+                                <span className={styles.phone}>{email}</span>
                             </div>
 
                             <div className={styles.socio}>
                                 <img src={LinkIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>www.adminadmin.com</span>
+                                <span className={styles.phone}>{web}</span>
                             </div>
 
                             <div className={styles.socio}>
                                 <img src={LinkedInIcon} className={styles.Icon}/>
-                                <span className={styles.phone}>www.linkedin.com/admin</span>
+                                <span className={styles.phone}>{linkedin}</span>
                             </div>
                         </div>
                     </div>
