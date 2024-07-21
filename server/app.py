@@ -8,7 +8,7 @@ CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'ucv&73'
+app.config['MYSQL_PASSWORD'] = '0000'
 app.config['MYSQL_DB'] = 'hr'
 app.config['SECRET_KEY'] = '12345'
 
@@ -23,9 +23,10 @@ def name():
     cur = mysql.connection.cursor()
     print("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", id)
     cur.execute('SELECT name FROM users where idUsers = %s', (str( id),))
-    users = cur.fetchall()
+    users = cur.fetchone()
     cur.close()
-    return jsonify(users)
+    if users:
+        return jsonify(users)
 
 @app.route('/login', methods=['POST'])
 def login():
