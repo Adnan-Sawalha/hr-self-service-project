@@ -1,68 +1,68 @@
 body {
-    margin: 0;
+  margin: 0;
+  font-family: Raleway Medium;
 }
 
 .bodyWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #ffffff , #6f66ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffffff, #6f66ff);
 }
-  
+
 .loginContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin: auto;
-    border: 1px;
-    background: #fff;
-    height: 85vh;
-    width: 450px;
-    border-radius: 20px;
-    box-shadow: 0 3px 20px rgb(139, 139, 139);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  border: 1px;
+  background: #fff;
+  height: 85vh;
+  width: 450px;
+  border-radius: 20px;
+  box-shadow: 0 3px 20px rgb(139, 139, 139);
 }
-  
+
 .loginTitle {
-    font-family: Segoe UI;
-    margin: 45px;
+  font-family: Segoe UI;
+  margin: 45px;
 }
-  
-.inputEmail, .inputPassword {
-    height: 50px;
-    width: 325px;
-    margin-bottom: 30px;
-    font-size: large;
-    font-family: 'Segoe UI';
-    border-radius: 15px;
-    padding-left: 20px;
-    border: grey;
-    box-shadow: 0 3px 20px rgb(139, 139, 139);
+
+.inputEmail,
+.inputPassword {
+  height: 50px;
+  width: 325px;
+  margin-bottom: 30px;
+  font-size: large;
+  font-family: "Segoe UI";
+  border-radius: 15px;
+  padding-left: 20px;
+  border: grey;
+  box-shadow: 0 3px 20px rgb(139, 139, 139);
 }
-  
+
 .loginButton {
-    cursor: pointer;
-    height: 50px;
-    width: 150px;
-    margin-top: 20px;
-    font-size: large;
-    font-family: 'Segoe UI';
-    font-weight: bold;
-    border-radius: 25px;
-    color: white;
-    background-color: #B58DED;
-    border: grey;
-    box-shadow: 0 3px 20px #B58DED;
-    
+  cursor: pointer;
+  height: 50px;
+  width: 150px;
+  margin-top: 20px;
+  font-size: large;
+  font-family: "Segoe UI";
+  font-weight: bold;
+  border-radius: 25px;
+  color: white;
+  background-color: #b58ded;
+  border: grey;
+  box-shadow: 0 3px 20px #b58ded;
 }
-  
+
 .signUpButton {
-    font-family: 'Segoe UI';
-    cursor: pointer;
-    font-size: 20px;
-    margin-top: 160px;
-    text-decoration: none;
-    color: #5B80A3;
-    
+  font-family: "Segoe UI";
+  cursor: pointer;
+  font-size: 20px;
+  margin-top: 160px;
+  text-decoration: none;
+  color: #5b80a3;
 }

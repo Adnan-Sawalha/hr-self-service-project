@@ -50,6 +50,30 @@ def name():
             'userId': user[16]
         }
         return jsonify(user_details)
+    
+
+@app.route('/leave')
+def leave():
+
+    cur = mysql.connection.cursor()
+    cur.execute('''
+        SELECT casual, sick, unpaid, courtesy, paternity, pto
+        FROM leaves 
+        WHERE idEmployee = %s
+    ''', (id,))
+    leaves = cur.fetchone()
+    cur.close()
+    if leaves: 
+        leaves_number = {
+            'casual': leaves[0],
+            'sick': leaves[1],
+            'unpaid': leaves[2],
+            'courtesy': leaves[3],
+            'paternity': leaves[4],
+            'pto': leaves[5]
+            
+        }
+        return jsonify(leaves_number)
 
 @app.route('/login', methods=['POST'])
 def login():

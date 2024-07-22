@@ -35,7 +35,7 @@ html {
 }
 
 .welcome {
-  font-size: 100px;
+  font-size: 90px;
 }
 
 .info {
@@ -141,7 +141,7 @@ html {
   background-color: #3f4658;
   color: white;
   text-align: center;
-  font-size: 30px;
+  font-size: 25px;
   width: 75%;
   height: 35%;
 }
@@ -196,23 +196,21 @@ html {
   position: absolute;
   top: 35%;
   left: 21%;
-  font-family: Arial, Helvetica, sans-serif;
 }
 
 .container_text_top {
   position: relative;
-  left: 15%;
-  top: 10%;
-  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  top: 8%;
   font-size: 25px;
 }
 
 .container_text_bottom {
+  font-weight: bold;
   position: relative;
-  bottom: -20%;
-  left: 1%;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
+  bottom: -25%;
+  left: -2%;
+  font-size: 13px;
 }
 
 .socio {
