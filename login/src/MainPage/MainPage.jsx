@@ -33,12 +33,22 @@ function MainPage() {
       <Nav />
       <Left />
       <div className={styles.containers}>
-        <Container type="Casual" num={casual} num2={7 - casual} />
-        <Container type="Sick" num={sick} num2={7 - sick} />
-        <Container type="Unpaid" num={unpaid} num2={10 - unpaid} />
-        <Container type="Courtesy" num={courtesy} num2={3 - courtesy} />
-        <Container type="Paternity" num={paternity} num2={3 - paternity} />
-        <Container type="PTO" num={pto} num2={14 - pto} />
+        <Container type="Casual" num={casual} num2={7 - casual} day="casual" />
+        <Container type="Sick" num={sick} num2={7 - sick} day="sick" />
+        <Container type="Unpaid" num={unpaid} num2={10 - unpaid} day="unpaid" />
+        <Container
+          type="Courtesy"
+          num={courtesy}
+          num2={3 - courtesy}
+          day="courtesy"
+        />
+        <Container
+          type="Paternity"
+          num={paternity}
+          num2={3 - paternity}
+          day="paternity"
+        />
+        <Container type="PTO" num={pto} num2={14 - pto} day="pto" />
       </div>
       <div className={styles.tableContainer}>
         <table className={styles.table}>
