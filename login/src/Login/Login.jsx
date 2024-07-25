@@ -29,15 +29,18 @@ function Login(props) {
         {
           headers: {
             "Content-Type": "application/json",
-          },
+          }
         }
       );
 
       console.log(response);
       props.onLogin();
     } catch (error) {
-      console.error(error);
-      setError("Login failed. Please check your email and password.");
+      if (error.response && error.response.data) {
+        setError(error.response.data.error);
+      } else {
+        setError("sorry ): server is down");
+      }
     }
   }
 
