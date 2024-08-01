@@ -8,6 +8,8 @@ import Tr2 from "../Components/tr2.jsx";
 import LastTR from "../Components/lastTR.jsx";
 import LinkedInIcon from "../assets/linkedIn.png";
 import axios from "axios";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
 
 function MainPage() {
   const [casual, setCasual] = useState(0);

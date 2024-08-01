@@ -1,6 +1,8 @@
+import React from "react";
 import styles from "../MainPage/MainPage.module.css";
 import Popup from "reactjs-popup";
 import "reactjs-popup/dist/index.css";
+import Form from "../Components/Form";
 
 function lastTR() {
   return (
@@ -10,15 +12,13 @@ function lastTR() {
       </td>
       <td className={styles.tableCont}>
         <div>
-          <Popup trigger={<button>+</button>} modal nested>
-            {(close) => (
-              <div className="modal">
-                <div className="content">Welcome to GFG!!!</div>
-                <div>
-                  <button onClick={() => close()}>Close modal</button>
-                </div>
-              </div>
-            )}
+          <Popup
+            trigger={<button>+</button>}
+            modal
+            nested
+            closeOnDocumentClick={false}
+          >
+            {(close) => <Form close={close} />}
           </Popup>
         </div>
       </td>
