@@ -8,7 +8,7 @@ CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'ucv&73'
+app.config['MYSQL_PASSWORD'] = '0000'
 app.config['MYSQL_DB'] = 'hr'
 app.config['SECRET_KEY'] = '12345'
 
@@ -47,7 +47,8 @@ def name():
             'linkedIn': user[13],
             'mobile': user[14],
             'role': user[15],
-            'userId': user[16]
+            'userId': user[16],
+            
         }
         return jsonify(user_details)
     
@@ -77,20 +78,27 @@ def leave():
 
 @app.route('/login', methods=['POST'])
 def login():
-    
     data = request.get_json()
-    e = data.get('email') 
-    p = data.get('password')
+    email = data.get('email')
+    password = data.get('password')
+
     cur = mysql.connection.cursor()
-    print("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL" + e + "LLLLLLLLL" + p)
-    cur.execute('SELECT idUsers FROM users WHERE email = %s and password = %s',  (e, p) )
-    isUser = cur.fetchone()
+    
+    cur.execute('SELECT idUsers, password FROM users WHERE email = %s', (email,))
+    user = cur.fetchone()
+
+    if user is None:
+        cur.close()
+        return jsonify({'error': 'Email not found'}), 400
+
+    if user[1] != password:
+        cur.close()
+        return jsonify({'error': 'Incorrect password'}), 400
+
+    global id
+    id = str(user[0])
     cur.close()
-    print("LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL", isUser[0])
-    print(type(isUser[0]))
-    global id 
-    id = str(isUser[0])
-    return jsonify(isUser[0])
+    return jsonify({'id': id})
     
 
 if __name__ == '__main__':
