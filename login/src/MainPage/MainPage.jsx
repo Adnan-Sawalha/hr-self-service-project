@@ -62,13 +62,9 @@ function MainPage() {
             <th className={styles.tableCont1}>Status</th>
             <th className={styles.tableCont1}>withdraw</th>
           </tr>
-          <Tr2 />
+
           <Tr />
-          <Tr2 />
-          <Tr />
-          <Tr2 />
-          <Tr />
-          <Tr2 />
+
           <LastTR />
         </table>
       </div>

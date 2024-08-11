@@ -8,7 +8,7 @@ CORS(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = '0000'
+app.config['MYSQL_PASSWORD'] = 'ucv&73'
 app.config['MYSQL_DB'] = 'hr'
 app.config['SECRET_KEY'] = '12345'
 
@@ -75,6 +75,39 @@ def leave():
             
         }
         return jsonify(leaves_number)
+    
+@app.route('/req')
+def req():
+    cur = mysql.connection.cursor()
+    cur.execute('''
+        SELECT idapply_leave, type, sDay, sMonth, sYear, eDay, eMonth, eYear, status
+        FROM apply_leave 
+        WHERE idUser = %s
+    ''', (id,))
+    
+    reqs = cur.fetchall()  # Fetch all matching rows
+    cur.close()
+    
+    if reqs:  # Check if any rows were returned
+        req_list = []
+        for req in reqs:
+            req_info = {
+                'id': req[0],
+                'type': req[1],
+                'sDay': req[2],
+                'sMonth': req[3],
+                'sYear': req[4],
+                'eDay': req[5],
+                'eMonth': req[6],
+                'eYear': req[7],
+                'status': req[8]
+            }
+            req_list.append(req_info)
+        
+        return jsonify(req_list)  # Return the list of leave request dictionaries
+    else:
+        return jsonify({'error': 'No leave requests found'}), 404
+
 
 @app.route('/login', methods=['POST'])
 def login():
