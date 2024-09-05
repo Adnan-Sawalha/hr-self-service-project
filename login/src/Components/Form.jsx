@@ -4,6 +4,7 @@ import { Calendar } from "primereact/calendar";
 import { RadioButton } from "primereact/radiobutton";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
+import "primeicons/primeicons.css";
 
 function Form({ close }) {
   const [date1, setDate1] = useState("");
@@ -12,7 +13,29 @@ function Form({ close }) {
   const [reason, setReason] = useState();
   return (
     <div className="modal" style={{ padding: 20, height: 500 }}>
-      <div style={{ textAlign: "center", fontSize: 25, marginBottom: 15 }}>
+      <Button
+        icon="pi pi-times"
+        rounded
+        outlined
+        severity="danger"
+        aria-label="Cancel"
+        style={{
+          position: "relative",
+          marginLeft: "660px",
+          marginBottom: "-20px",
+          marginTop: -20,
+        }}
+        onClick={close}
+      />
+
+      <div
+        style={{
+          textAlign: "center",
+          fontSize: 25,
+          marginBottom: 15,
+          marginTop: -20,
+        }}
+      >
         Apply For a Leave
       </div>
       <div className="content" style={{ marginBottom: 10 }}>
@@ -140,7 +163,7 @@ function Form({ close }) {
         />
       </div>
       <div style={{ position: "relative", top: -37, textAlign: "center" }}>
-        <Button label="Submit" onClick={close} />
+        <Button label="Submit" />
       </div>
     </div>
   );
