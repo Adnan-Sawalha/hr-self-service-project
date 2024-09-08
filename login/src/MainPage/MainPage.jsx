@@ -11,7 +11,7 @@ import axios from "axios";
 import "primereact/resources/themes/lara-light-indigo/theme.css";
 import "primereact/resources/primereact.min.css";
 
-function MainPage() {
+function MainPage(props) {
   const [casual, setCasual] = useState(0);
   const [sick, setSick] = useState(0);
   const [unpaid, setUnpaid] = useState(0);
@@ -30,9 +30,37 @@ function MainPage() {
     });
   }, []);
 
+  // setTimeout(() => {
+  //   writeRow("4", "casual", "3/5/2014", "5/5/2014", "Approved");
+  // }, 5000);
+
+  // function writeRow(id, type, sDate, eDate, statu) {
+  //   let tr = document.createElement("tr");
+  //   let td1 = document.createElement("td");
+  //   td1.classList.add(styles.tableCont1);
+  //   let td2 = document.createElement("td");
+  //   td2.classList.add(styles.tableCont1);
+  //   let td3 = document.createElement("td");
+  //   td3.classList.add(styles.tableCont1);
+  //   let td4 = document.createElement("td");
+  //   td4.classList.add(styles.tableCont1);
+  //   let td5 = document.createElement("td");
+  //   td5.classList.add(styles.tableCont1);
+  //   let td6 = document.createElement("td");
+  //   td6.classList.add(styles.tableCont1);
+  //   td1.innerText = id;
+  //   td2.innerText = type;
+  //   td3.innerText = sDate;
+  //   td4.innerText = eDate;
+  //   td5.innerText = statu;
+  //   td6.innerHTML = "<button>-</button>";
+  //   tr.append(td1, td2, td3, td4, td5, td6);
+  //   document.getElementById("requestTable").append(tr);
+  // }
+
   return (
-    <div className={styles.bodyWrapper}>
-      <Nav />
+    <div className={styles.bodyWrapper} id="mainpage">
+      <Nav onLogout={props.onLogout} />
       <Left />
       <div className={styles.containers}>
         <Container type="Casual" num={casual} num2={7 - casual} day="casual" />
@@ -52,32 +80,38 @@ function MainPage() {
         />
         <Container type="PTO" num={pto} num2={14 - pto} day="pto" />
       </div>
+
       <div className={styles.tableContainer}>
-        <table className={styles.table}>
-          <tr>
-            <th className={styles.tableCont1}>ID</th>
-            <th className={styles.tableCont1}>Type</th>
-            <th className={styles.tableCont1}>Start Date</th>
-            <th className={styles.tableCont1}>End Date</th>
-            <th className={styles.tableCont1}>Status</th>
-            <th className={styles.tableCont1}>withdraw</th>
-          </tr>
+        <div className={styles.table_label} id="apply">
+          <h1>Apply for Leave</h1>
+        </div>
+        <div className={styles.table_content}>
+          <table className={styles.table} id="requestTable">
+            <tr>
+              <th className={styles.tableCont1}>ID</th>
+              <th className={styles.tableCont1}>Type</th>
+              <th className={styles.tableCont1}>Start Date</th>
+              <th className={styles.tableCont1}>End Date</th>
+              <th className={styles.tableCont1}>Status</th>
+              <th className={styles.tableCont1}>withdraw</th>
+            </tr>
 
-          <Tr />
+            <Tr />
 
-          <LastTR />
-        </table>
+            <LastTR />
+          </table>
+        </div>
       </div>
       <div className={styles.footer}>
         <a href="https://www.linkedin.com/in/adnan-sawalha-1075bb2b1/">
           <img src={LinkedInIcon} alt="linkeIn" />
-          Adnan-swalha
-        </a>
-        <a href="https://www.linkedin.com/in/ahmad-almanasrah-356475279/">
-          <img src={LinkedInIcon} alt="linkeIn" />
-          Ahmad-Almanasrah
+          Adnan Sawalha
         </a>
         <h4>&copy; all rights reserved </h4>
+        <a href="https://www.linkedin.com/in/ahmad-almanasrah-356475279/">
+          <img src={LinkedInIcon} alt="linkeIn" />
+          Ahmad Almanasrah
+        </a>
       </div>
     </div>
   );

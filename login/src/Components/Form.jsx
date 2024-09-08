@@ -1,16 +1,154 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "reactjs-popup/dist/index.css";
 import { Calendar } from "primereact/calendar";
 import { RadioButton } from "primereact/radiobutton";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Button } from "primereact/button";
 import "primeicons/primeicons.css";
+// import { writeRow } from "../MainPage/MainPage";
+import styles from "../MainPage/MainPage.module.css";
+import axios from "axios";
+import MainPage from "../MainPage/MainPage";
+import lastTR from "./lastTR";
+
+// function writeRow(id, type, sDate, eDate, statu) {
+//   let tr = document.createElement("tr");
+//   let td1 = document.createElement("td");
+//   td1.classList.add(styles.tableCont1);
+//   let td2 = document.createElement("td");
+//   td2.classList.add(styles.tableCont1);
+//   let td3 = document.createElement("td");
+//   td3.classList.add(styles.tableCont1);
+//   let td4 = document.createElement("td");
+//   td4.classList.add(styles.tableCont1);
+//   let td5 = document.createElement("td");
+//   td5.classList.add(styles.tableCont1);
+//   let td6 = document.createElement("td");
+//   td6.classList.add(styles.tableCont1);
+//   td1.innerText = id;
+//   td2.innerText = type;
+//   td3.innerText = sDate;
+//   td4.innerText = eDate;
+//   td5.innerText = statu;
+//   td6.innerHTML = "<button>-</button>";
+//   tr.append(td1, td2, td3, td4, td5, td6);
+//   let table = document.getElementById("requestTable");
+//   let lc = table.lastChild;
+//   lc.remove();
+//   table.append(tr);
+//   table.append(lc);
+//   console.log("objectCreated");
+// }
+
+const config = {
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+  },
+};
 
 function Form({ close }) {
+  const [id, setId] = useState("");
   const [date1, setDate1] = useState("");
   const [date2, setDate2] = useState("");
   const [type, setType] = useState();
   const [reason, setReason] = useState();
+  // writeRow("4", "casual", "3/5/2014", "5/5/2014", "Approved");
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    await axios.post(
+      "http://127.0.0.1:5000/reques",
+      {
+        ttype: type,
+        sMonth: new Date(date1).toLocaleDateString(),
+        eMonth: new Date(date2).toLocaleDateString(),
+        status: "P",
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const response = await axios.get("http://127.0.0.1:5000/req");
+
+    writeRow(response.data.at(-1)["id"], type, date1, date2, "Pending");
+
+    // } catch (error) {
+    //   if (error.response && error.response.data) {
+    //     setError(error.response.data.error);
+    //   } else {
+    //     setError("sorry ): server is down");
+    //   }
+    // }
+  }
+
+  function writeRow(id, type, sDate, eDate, statu) {
+    let tr = document.createElement("tr");
+    let td1 = document.createElement("td");
+    td1.classList.add(styles.tableCont1);
+    let td2 = document.createElement("td");
+    td2.classList.add(styles.tableCont1);
+    let td3 = document.createElement("td");
+    td3.classList.add(styles.tableCont1);
+    let td4 = document.createElement("td");
+    td4.classList.add(styles.tableCont1);
+    let td5 = document.createElement("td");
+    td5.classList.add(styles.tableCont1);
+    let td6 = document.createElement("td");
+    td6.classList.add(styles.tableCont1);
+    td1.innerText = id;
+    td2.innerText = type;
+    td3.innerText = new Date(sDate).toLocaleDateString();
+    td4.innerText = new Date(eDate).toLocaleDateString();
+    td5.innerText = statu;
+    td6.innerHTML = `
+      <button style="border: 0;
+  background-color: tomato;
+  border-radius: 0.9em;
+  padding: 0.8em 1em 0.8em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
+  min-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;">
+              <span style="display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16l-1.58 14.22A2 2 0 0 1 16.432 22H7.568a2 2 0 0 1-1.988-1.78L4 6Zm3.345-2.853A2 2 0 0 1 9.154 2h5.692a2 2 0 0 1 1.81 1.147L18 6H6l1.345-2.853ZM2 6h20m-12 5v5m4-5v5"
+                  />
+                </svg>
+                <span style="opacity: 0">l</span>
+                Delete
+              </span>
+            </button>`;
+    tr.append(td1, td2, td3, td4, td5, td6);
+    let table = document.getElementById("requestTable");
+    let lc = table.lastChild;
+    lc.remove();
+    table.append(tr);
+    table.append(lc);
+    // document.getElementById("requestTable").append(tr);
+  }
+
   return (
     <div className="modal" style={{ padding: 20, height: 500 }}>
       <Button
@@ -47,6 +185,7 @@ function Form({ close }) {
           onChange={(e) => setDate1(e.value)}
           showIcon
           showOnFocus={false}
+          required
         />
       </div>
       <div style={{ position: "relative", top: -74, left: 400 }}>
@@ -58,6 +197,7 @@ function Form({ close }) {
           onChange={(e) => setDate2(e.value)}
           showIcon
           showOnFocus={false}
+          aria-required
         />
       </div>
       <div style={{ position: "relative", top: -40 }}>Leave Type:</div>
@@ -72,6 +212,7 @@ function Form({ close }) {
             value="Casual"
             onChange={(e) => setType(e.value)}
             checked={type === "Casual"}
+            required
           />
           <label htmlFor="type1" className="ml-2" style={{ marginLeft: 10 }}>
             Casual
@@ -163,7 +304,7 @@ function Form({ close }) {
         />
       </div>
       <div style={{ position: "relative", top: -37, textAlign: "center" }}>
-        <Button label="Submit" />
+        <Button label="Submit" onClick={handleSubmit} />
       </div>
     </div>
   );

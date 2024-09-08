@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: Raleway Medium;
+  font-family: Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .bodyWrapper {
@@ -66,8 +66,8 @@ body {
   text-decoration: none;
   color: #5b80a3;
 }
-.error{
-  color:red;
-  position:fixed;
-  bottom :25%;
+.error {
+  color: red;
+  position: fixed;
+  bottom: 25%;
 }

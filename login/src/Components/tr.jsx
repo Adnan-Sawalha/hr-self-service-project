@@ -41,18 +41,34 @@ function Tr() {
   return (
     <>
       {requests.map((request) => (
-        <tr key={request.id}>
+        <tr className={styles.tableCont3} key={request.id}>
           <td className={styles.tableCont1}>{request.id}</td>
           <td className={styles.tableCont1}>{request.type}</td>
-          <td className={styles.tableCont1}>
-            {request.sMonth} {request.sDay}, {request.sYear}
-          </td>
-          <td className={styles.tableCont1}>
-            {request.eMonth} {request.eDay}, {request.eYear}
-          </td>
+          <td className={styles.tableCont1}>{request.sMonth}</td>
+          <td className={styles.tableCont1}>{request.eMonth}</td>
           <td className={styles.tableCont1}>{request.status}</td>
           <td className={styles.tableCont1}>
-            <button>-</button>
+            <button className={styles["add-btn"] + " " + styles["delete-btn"]}>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16l-1.58 14.22A2 2 0 0 1 16.432 22H7.568a2 2 0 0 1-1.988-1.78L4 6Zm3.345-2.853A2 2 0 0 1 9.154 2h5.692a2 2 0 0 1 1.81 1.147L18 6H6l1.345-2.853ZM2 6h20m-12 5v5m4-5v5"
+                  />
+                </svg>
+                <span style={{ opacity: 0 }}>l</span>
+                Delete
+              </span>
+            </button>
           </td>
         </tr>
       ))}

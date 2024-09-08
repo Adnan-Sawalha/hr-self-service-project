@@ -1,6 +1,5 @@
 html {
   overflow-x: hidden;
-  /* background-color: lightgray; */
 }
 .bodyWrapper {
   display: flex;
@@ -63,7 +62,7 @@ html {
 
 .container {
   padding-left: 20px;
-  width: 210px;
+  width: 230px;
   height: 160px;
   background-color: white;
   border-radius: 15px;
@@ -248,46 +247,69 @@ html {
 
 .tableContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
   width: 100%;
-  height: 650px;
+  min-height: 128px;
+  /* height: fit-content;
+  max-height: 560px; */
+  /* overflow: hidden; */
+  margin-bottom: 36px;
+  text-align: center;
 }
 
 .table {
-  width: 1400px;
-  height: 500px;
+  /* width: 1400px;
+  height: 500px; */
+  overflow: auto;
+  /* border: solid 2px #bbb; */
+  border-collapse: collapse;
+  /* background-color: red; */
 }
 
 .tableCont1,
 .tableCont2,
 .tableCont {
-  width: 188.13px;
-  height: 50px;
+  border: solid 2px #bbb;
+  min-width: 188px;
+  width: 220px;
+  min-height: 50px;
+  height: 64px;
   padding-left: 10px;
-  background-color: #e9ecef;
+  /* background-color: #eee; */
 }
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+/* tr:nth-child(even) {
+  background-color: #eee !important;
+} */
+
 .tableCont1 Button,
 .tableCont Button,
 .tableCont2 button {
-  position: relative;
-  left: 84.5px;
+  /* position: relative; */
+  /* left: 84.5px; */
   height: 40px;
   width: 50px;
+  margin: auto;
 }
 .tableCont {
   text-align: center;
   color: #6c6d70;
   font-size: 30px;
 }
-.tableCont div {
+/* .tableCont div {
   position: relative;
   right: 38.5%;
   justify-content: center;
   align-items: center;
   display: flex;
-}
+} */
 
 .tableCont1 img,
 .tableCont2 img {
@@ -296,19 +318,19 @@ html {
 }
 
 .tableCont2 {
-  background-color: white;
+  /* background-color: white; */
 }
 .footer {
-  flex-direction: column;
+  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   color: white;
   background: linear-gradient(
     to right,
     hsl(207, 81%, 80%),
     hsl(244, 100%, 77%)
   );
-  padding: 20px 0;
+  /* padding: 20px 0; */
   height: 80px;
   width: 100%;
   z-index: 1;
@@ -319,25 +341,26 @@ html {
   align-items: center;
   text-decoration: none;
   color: white;
-  margin-top: 10px;
-  position: relative;
+  /* margin-top: 10px; */
+  /* position: relative;
   left: 10%;
-  top: 25%;
+  top: 25%; */
+  cursor: pointer;
+  font-size: 20px;
 }
 .footer a :hover {
-  cursor: pointer;
   color: #c9cbd1;
 }
 
 .footer h4 {
-  margin-top: 10px; /* Adjust margin for spacing above the text */
-  text-align: center; /* Center the text */
+  margin-bottom: -15px;
+  font-size: 15px;
 }
 
 .footer img {
   margin-right: 5px;
-  height: 12px;
-  width: 12px;
+  height: 30px;
+  width: 30px;
 }
 
 /* .progress {
@@ -505,4 +528,143 @@ html {
   align-items: center;
   justify-content: center;
   font-size: 25px;
+}
+
+/* From Uiverse.io by vinodjangid07 */
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 65, 65);
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+/* plus sign */
+.sign {
+  width: 100%;
+  transition-duration: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign svg {
+  width: 17px;
+}
+
+.sign svg path {
+  fill: white;
+}
+/* text */
+.text {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: 0.3s;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 125px;
+  border-radius: 40px;
+  transition-duration: 0.3s;
+}
+
+.Btn:hover .sign {
+  width: 30%;
+  transition-duration: 0.3s;
+  padding-left: 20px;
+}
+/* hover effect button's text */
+.Btn:hover .text {
+  opacity: 1;
+  width: 70%;
+  transition-duration: 0.3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px, 2px);
+}
+
+.add-btn {
+  border: 2px solid #24b4fb;
+  background-color: #24b4fb;
+  border-radius: 0.9em;
+  padding: 0.8em 1em 0.8em 1em;
+  transition: all ease-in-out 0.2s;
+  font-size: 16px;
+  min-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add-btn span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: 600;
+}
+
+.add-btn:hover {
+  background-color: #0071e2;
+}
+
+.delete-btn {
+  background-color: tomato;
+  border: 0;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: red;
+}
+
+.table_label {
+  /* border: solid 1px black; */
+  /* margin-top: 20px; */
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.table_content {
+  height: fit-content;
+  max-height: 560px;
+  overflow: auto;
+
+  /* border: solid 1px black; */
+}
+
+.table_content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table_content::-webkit-scrollbar-track {
+  width: 8px;
+}
+
+.table_content::-webkit-scrollbar-thumb {
+  width: 8px;
+  background-color: lightgrey;
+  border-radius: 9999px;
+}
+
+.table_content::-webkit-scrollbar-button {
+  display: none;
 }

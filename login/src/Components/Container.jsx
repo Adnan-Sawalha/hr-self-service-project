@@ -24,32 +24,32 @@ function Container(props) {
       case "casual":
         per = days / 7;
         deg = per * 360;
-        newGradient = `conic-gradient(red 0deg, red ${deg}deg, white ${deg}deg, white 360deg)`;
+        newGradient = `conic-gradient(#F6464B 0deg, #F6464B ${deg}deg, white ${deg}deg, white 360deg)`;
         break;
       case "sick":
         per = days / 7;
         deg = per * 360;
-        newGradient = `conic-gradient(orange 0deg, orange ${deg}deg, white ${deg}deg, white 360deg)`;
+        newGradient = `conic-gradient(#F89444 0deg, #F89444 ${deg}deg, white ${deg}deg, white 360deg)`;
         break;
       case "unpaid":
         per = days / 10;
         deg = per * 360;
-        newGradient = `conic-gradient(yellow 0deg, yellow ${deg}deg, white ${deg}deg, white 360deg)`;
+        newGradient = `conic-gradient(#FFEF66 0deg, #FFEF66 ${deg}deg, white ${deg}deg, white 360deg)`;
         break;
       case "courtesy":
         per = days / 3;
         deg = per * 360;
-        newGradient = `conic-gradient(green 0deg, green ${deg}deg, white ${deg}deg, white 360deg)`;
+        newGradient = `conic-gradient(#75F174 0deg, #75F174 ${deg}deg, white ${deg}deg, white 360deg)`;
         break;
       case "paternity":
         per = days / 3;
         deg = per * 360;
-        newGradient = `conic-gradient(blue 0deg, blue ${deg}deg, white ${deg}deg, white 360deg)`;
+        newGradient = `conic-gradient(#4863F9 0deg, #4863F9 ${deg}deg, white ${deg}deg, white 360deg)`;
         break;
       case "pto":
         per = days / 14;
         deg = per * 360;
-        newGradient = `conic-gradient(purple 0deg, purple ${deg}deg, white ${deg}deg, white 360deg)`;
+        newGradient = `conic-gradient(#C272FD 0deg, #C272FD ${deg}deg, white ${deg}deg, white 360deg)`;
         break;
     }
 

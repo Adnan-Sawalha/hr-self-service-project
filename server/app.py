@@ -85,10 +85,10 @@ def req():
         WHERE idUser = %s
     ''', (id,))
     
-    reqs = cur.fetchall()  # Fetch all matching rows
+    reqs = cur.fetchall()  
     cur.close()
     
-    if reqs:  # Check if any rows were returned
+    if reqs:  
         req_list = []
         for req in reqs:
             req_info = {
@@ -104,7 +104,7 @@ def req():
             }
             req_list.append(req_info)
         
-        return jsonify(req_list)  # Return the list of leave request dictionaries
+        return jsonify(req_list)
     else:
         return jsonify({'error': 'No leave requests found'}), 404
 
@@ -132,7 +132,29 @@ def login():
     id = str(user[0])
     cur.close()
     return jsonify({'id': id})
+
+
+@app.route('/reques', methods=['POST'])
+def reques():
+    data = request.get_json()
+    ttype = data.get('ttype')
+    sDay = 0
+    sMonth = data.get('sMonth')
+    sYear = 0
+    eDay = 0
+    eMonth = data.get('eMonth')
+    eYear = 0
+    status = data.get('status')
+
+    cur = mysql.connection.cursor()
     
+    cur.execute('INSERT INTO apply_leave (idUser, type, sDay, sMonth, sYear, eDay, eMonth, eYear, status) VALUES (%s, %s, 0, %s, 0, 0, %s, 0, %s)', (id, ttype, sMonth, eMonth, status))
+
+    mysql.connection.commit()
+
+    cur.close()
+
+    return jsonify("Done")
 
 if __name__ == '__main__':
     app.run(debug=True)

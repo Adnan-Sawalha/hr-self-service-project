@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Login.module.css";
 import axios from "axios";
 
@@ -6,6 +6,10 @@ function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    localStorage.getItem("isLogged") == "true" ? props.onLogin() : undefined;
+  }, []);
 
   function handleEmailChange(event) {
     setEmail(event.target.value);
@@ -29,11 +33,12 @@ function Login(props) {
         {
           headers: {
             "Content-Type": "application/json",
-          }
+          },
         }
       );
 
       console.log(response);
+      localStorage.setItem("isLogged", true);
       props.onLogin();
     } catch (error) {
       if (error.response && error.response.data) {
